@@ -1,0 +1,43 @@
+@use './variables';
+
+.contact-item {
+
+    display: flex;
+    flex-direction: row;
+    justify-content: flex-start;
+    align-items: center;
+    border: 0.5px solid variables.$gray-color;
+    padding: 12px 0px;
+    border-radius: 4px;
+
+    .react-avatar
+    {
+        display: block;
+        margin-right: 10px;
+    }
+
+    .text-container {
+        span {
+            display: block;
+            color: variables.$text-color;
+        }
+
+        .name {
+            font-size: 1.5rem;
+        }
+
+        .phone {
+            font-size: 0.9rem;
+            color: variables.$gray-color;
+        }
+    }
+
+    .chevron-right-icon
+    {
+        font-size: 2rem;
+        color: variables.$gray-color;
+        flex: 1;
+        justify-self: end;
+    }
+    
+}
