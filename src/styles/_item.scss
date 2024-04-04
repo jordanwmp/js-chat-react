@@ -7,8 +7,9 @@
     justify-content: flex-start;
     align-items: center;
     border: 0.5px solid variables.$gray-color;
-    padding: 12px 0px;
-    border-radius: 4px;
+    padding: 12px 8px;
+    /*border-radius: 4px;*/
+    cursor: pointer;
 
     .react-avatar
     {
@@ -36,8 +37,8 @@
     {
         font-size: 2rem;
         color: variables.$gray-color;
-        flex: 1;
-        justify-self: end;
+        margin-left: auto;
     }
     
 }
+

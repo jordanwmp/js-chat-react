@@ -1,0 +1,7 @@
+@mixin centerHorizontalContent
+{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+   
+}

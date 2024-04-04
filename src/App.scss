@@ -1,0 +1,20 @@
+@use './styles/center_horizontal_content';
+
+
+.App
+{
+    max-width: 800px;
+    margin: auto;
+    @include center_horizontal_content.centerHorizontalContent;
+
+    h1{
+        margin-bottom: 0;
+    }
+
+    .listItem:first-child
+    {
+        border-radius: 4px;
+        border: 1px solid red;
+    }
+
+}

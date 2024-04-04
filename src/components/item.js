@@ -4,7 +4,7 @@ import Avatar from 'react-avatar';
 import '../styles/_item.scss';
 import { FiChevronRight } from "react-icons/fi";
 
-function Item() {
+const Item = ({ name, phone }) => {
     return (
         <div className='contact-item'>
             <Avatar
@@ -14,10 +14,10 @@ function Item() {
                 size={60}
             />
             <div className='text-container'>
-                <span className='name'>Jordan Willian</span>
-                <span className='phone'>(98) 9 9999-9999</span>
+                <span className='name'>{name}</span>
+                <span className='phone'>{phone}</span>
             </div>
-            <FiChevronRight className='chevron-right-icon'/>
+            <FiChevronRight className='chevron-right-icon' />
         </div>
     );
 }
