@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
+import api  from './contexts/api'
 import { 
   BrowserRouter as Router, 
   Route, 
@@ -14,44 +15,6 @@ import Input from './components/input';
 import Button from './components/button';
 import NewContact from './components/newContact';
 
-const data = [
-  {
-    id: 1,
-    avatar: '',
-    name: 'Jordan Wilian',
-    phone: '(11) 1 1111-1111'
-  },
-  {
-    id: 2,
-    avatar: '',
-    name: 'Carlos Oliveira',
-    phone: '(22) 2 2222-2222'
-  },
-  {
-    id: 3,
-    avatar: '',
-    name: 'Ana Beatriz',
-    phone: '(33) 3 3333-3333'
-  },
-  {
-    id: 4,
-    avatar: '',
-    name: 'Bianca Pereira',
-    phone: '(44) 4 4444-4444'
-  },
-  {
-    id: 5,
-    avatar: '',
-    name: 'João Gabriel',
-    phone: '(55) 5 5555-5555'
-  },
-  {
-    id: 6,
-    avatar: '',
-    name: 'Mônica Rocha',
-    phone: '(66) 6 6666-6666'
-  }
-]
 
 const App = () => {
 
@@ -67,12 +30,25 @@ const App = () => {
 
 const Home = ( {history} ) => {
 
-  const [research, setResearch] = useState(data);
+  const [research, setResearch] = useState([]);
+
+  const receiveData = () =>{
+    api.get('/api/contact')
+    .then((response)=>{
+      console.log('response ', response)
+      setResearch(response.data.data.contacts)
+    })
+    .catch((e)=>{console.log('error on response ', e)})
+  }
+
+  useEffect(()=>{
+    receiveData()
+  }, [])
 
   const handleResearch = (value) => {
 
     if (!value) {
-      setResearch(data)
+      receiveData()
       return
     }
 
@@ -82,7 +58,6 @@ const Home = ( {history} ) => {
     })
     setResearch(find)
   }
-
   
   return (
     <div className='App'>

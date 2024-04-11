@@ -4,12 +4,12 @@ import Avatar from 'react-avatar';
 import '../styles/_item.scss';
 import { FiChevronRight } from "react-icons/fi";
 
-const Item = ({ name, phone }) => {
+const Item = ({ name, phone, avatar }) => {
     return (
         <div className='contact-item'>
             <Avatar
                 className='react-avatar'
-                src="https://conteudo.imguol.com.br/c/entretenimento/c8/2017/07/11/master-chief-1499797287317_v2_4x3.jpg"
+                src={avatar}
                 round={true}
                 size={60}
             />
