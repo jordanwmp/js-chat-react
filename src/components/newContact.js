@@ -1,10 +1,13 @@
 import { useState } from 'react'
+import { useHistory } from 'react-router-dom';
 import api from '../contexts/api'
 
 import '../styles/_formContainer.scss';
 import '../styles/_button.scss';
 
 const NewContact = () => {
+
+    const history = useHistory()
 
     const [name, setName] = useState("")
     const [phone, setPhone] = useState("")
@@ -23,8 +26,9 @@ const NewContact = () => {
     }
 
     const registerContact = (e) => {
-
         e.preventDefault();
+        console.log('kkk')
+        
 
         if (!name || !phone) {
             alert("Preencha todos os campos")
@@ -40,6 +44,7 @@ const NewContact = () => {
                 console.log('contact ', contact)
                 setName("")
                 setPhone("")
+                history.push("/")
             })
             .catch((e) => {
                 console.log('error on add new contact ', e)
@@ -50,15 +55,16 @@ const NewContact = () => {
     return (
         <div className="formContainer">
             <h1>Cadastrar contato</h1>
-            <form>
-
+                <form method='post' onSubmit={(event)=>{ registerContact(event)}}>
                 <input type="text" placeholder="Nome" value={name} onChange={handleName} />
                 <input type="tel" placeholder="Telefone" value={phone} onChange={handlePhone} />
 
-                <button className='button' onClick={()=>{ registerContact() }}>
+                <button  className='button' type='submit'>
                     Cadastrar
                 </button>
-            </form>
+
+                </form>
+
         </div>
     )
 }

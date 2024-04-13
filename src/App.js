@@ -56,6 +56,7 @@ const Home = ( {history} ) => {
       return contact.name.toLowerCase().indexOf(value.toLowerCase()) != -1 ||
         contact.phone.toLowerCase().indexOf(value.toLowerCase()) != -1
     })
+
     setResearch(find)
   }
   
