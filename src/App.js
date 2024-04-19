@@ -71,7 +71,7 @@ const Home = ( {history} ) => {
 
       <div className='lisItem'>
         {research.map((contact, index) => (
-          <Item name={contact.name} phone={contact.phone} avatar={contact.avatar} key={index} />
+          <Item name={contact.name} phone={contact.contact} avatar={contact.avatar} key={index} />
         ))}
       </div>
 
