@@ -7,6 +7,15 @@
     padding: 12px 8px;
     border-radius: 8px;
 
+    .avatarContainer
+    {
+        display: block;
+        width: max-content;
+        margin: 15px auto;
+        border: 1px solid #dedede;
+        padding: 1px;
+    }
+
     input {
         display: block;
         width: 95%;

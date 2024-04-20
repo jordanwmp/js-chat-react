@@ -15,6 +15,8 @@ const NewContact = () => {
     const [name, setName] = useState("")
     const [phone, setPhone] = useState("")
     const [profilePhoto, setProfilePhoto] = useState("")
+    const [image, setImage] = useState(null);
+
 
     const handleName = (event) => {
         setName(event.target.value)
@@ -26,8 +28,10 @@ const NewContact = () => {
 
     const handleProfilePhoto = (event) => {
         const file = event.target.files[0];
-        console.log('file ', event.target.files);
+        const imageUrl = URL.createObjectURL(file);
+
         setProfilePhoto(file)
+        setImage(imageUrl);
     }
 
     const registerContact = (e) => {
@@ -58,6 +62,7 @@ const NewContact = () => {
                 setName("")
                 setPhone("")
                 setProfilePhoto("")
+                setImage("")
                 history.push("/")
             })
             .catch((e) => {
@@ -71,12 +76,12 @@ const NewContact = () => {
             <h1>Cadastrar contato</h1>
 
             {
-                profilePhoto && <div className='avatarContainer'>
+                image && <div className='avatarContainer'>
                 <Avatar
                         className='react-avatar'
-                        src={profilePhoto}
+                        src={image}
                         round={true}
-                        size={60}
+                        size={110}
                     />
                 </div>
             }
